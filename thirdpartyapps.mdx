@@ -4,92 +4,95 @@ title: "Connect third-party apps"
 
 Follow these steps to securely connect the apps you would like to use within Claude to Keyboard.
 
-<Steps>
-  <Step title="Navigate to Repository Settings" iconType="regular" stepNumber={1} titleSize="h2">
-    Go to your GitHub repository that you forked, it should have the name "codespace-executor".
+### Navigate to Repo Settings
 
-    Click on the Settings tab (you need admin access).
+1. Go to your GitHub repository that you forked, it should have the name "codespace-executor".
+2. Click on the **Settings** tab (you need admin access)
+3. In the left sidebar, click **Secrets and variables**
+4. Click **Codespaces**
 
-    In the left sidebar, click Secrets and variables.
+### Add Repo Secrets
 
-    Click Codespaces.
-  </Step>
-  <Step title="Add Repository Secrets" titleSize="h2">
-    Click New Repository Secret
-
-    Enter the secret name with KEYBOARD\_ prefix in the following format KEYBOARD_APPNAME_API_KEY (e.g. KEYBOARD_TYPEFORM_API_KEY)
-
-    Enter the secret value (your actual API key)
-
-    Click Add secret
-  </Step>
-</Steps>
+1. Click **New repository secret**
+2. Enter the secret name with **KEYBOARD\_** prefix in the following format KEYBOARD_APPNAME_API_KEY (e.g. KEYBOARD_TYPEFORM_API_KEY)
+3. Enter the secret value (your actual API key)
+4. Click **Add secret**
 
 <Tip>
-      - Once you've added the secrets you will have to reset any codespaces already running (you can ask Keyboard to delete existing codespaces)
-      - In Claude desktop ask what environment variables Keyboard has access to in order to confirm the connection worked
-      - Start asking Claude to perform tasks in your connected apps once it confirms it has access to
-    </Tip>
+  - Once you've added the secrets you will have to reset any codespaces already running (you can ask Keyboard to delete existing codespaces)
+  - In Claude desktop ask what environment variables Keyboard has access to in order to confirm the connection worked
+  - Start asking Claude to perform tasks in your connected apps once it confirms it has access to
+</Tip>
 
-## Custom ports
+## Security overview
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. For example, to run Mintlify on port 3333, use this command:
+### What does Keyboard have access to?
 
-```bash
-mint dev --port 3333
+Keyboard does not have access to the API keys you input. Those are stored in your private GitHub repo. Keyboard only knows that the environment variable is available to point Claude to when ready to execute a task. By default you will always have the ability to to approve or deny any task before Claude goes and executes a task leveraging the API key (_you can also turn this final approval off if you want_).
+
+### Best practices for AI-driven environment variable naming
+
+**Do:**
+
+- Use uppercase names with the **KEYBOARD\_** prefix
+- Include the service name in the variable name
+- Use consistent naming patterns across your project
+
+**Examples of Environment Variable Names:**
+
+```markdown
+# Third-Party Integration Secrets
+KEYBOARD_TYPEFORM_API_KEY
+KEYBOARD_STRIPE_SECRET_KEY
+KEYBOARD_STRIPE_PUBLISHABLE_KEY
+KEYBOARD_SENDGRID_API_KEY
+KEYBOARD_SENDGRID_FROM_EMAIL
+KEYBOARD_ASANA_API_KEY
+KEYBOARD_GOOGLE_SLIDES_API_KEY
+KEYBOARD_GOOGLE_DOCS_API_KEY_READ_ONLY
+KEYBOARD_GITHUB_TOKEN_FOR_API
 ```
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+### Avoid these common mistakes
 
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
+- Generic names like KEY, SECRET, or TOKEN
+- Lowercase or mixed-case names
+- Ambiguous abbreviations
+- Storing secrets in code or configuration files
+- Using production keys in development environments
 
-## Mintlify versions
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local preview does not align with the production version, please update the CLI:
-
-```bash
-npm mint update
-```
-
-## Validating links
-
-The CLI can assist with validating links in your documentation. To identify any broken links, use the following command:
-
-```bash
-mint broken-links
-```
-
-## Deployment
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img
-    src="/images/checks-passed.png"
-    alt="Screenshot of a deployment confirmation message that says All checks have passed."
-    style={{ borderRadius:"0.5rem" }}
-  />
-</Frame>
-
-## Code formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
+## Step-by-step integration examples
 
 <AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-    This may be due to an outdated version of node. Try the following:
+  <Accordion title="Typeform integration">
+    **Getting Your Typeform API Key:**
 
-    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall the CLI: `npm i -g mint`
+    1. Log in to [Typeform](https://typeform.com/)
+    2. Click on your profile picture → **Settings**
+    3. Go to **Personal tokens**
+    4. Click **Generate a new token**
+    5. Give it a descriptive name (e.g., "Keyboard Development")
+    6. Copy your personal access token (starts with tfp\_)
+
+    **Add to GitHub Codespaces:**
+
+    - **Secret Name**: KEYBOARD_TYPEFORM_API_KEY
+    - **Secret Value**: tfp_your_actual_token_here
   </Accordion>
-  <Accordion title="Issue: Encountering an unknown error">
-    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
+  <Accordion title="SendGrid email integration">
+    **Getting Your SendGrid API Key:**
+
+    1. Log in to [SendGrid](https://sendgrid.com/)
+    2. Go to **Settings** → **API Keys**
+    3. Click **Create API Key**
+    4. Choose **Full Access** or configure specific permissions
+    5. Copy your API key (starts with SG.)
+
+    **Add to GitHub Codespaces:**
+
+    - **Secret Name**: KEYBOARD_SENDGRID_API_KEY
+    - **Secret Value**: SG.your_sendgrid_api_key_here
+    - **Secret Name**: KEYBOARD_SENDGRID_FROM_EMAIL
+    - **Secret Value**: [your_verified_sender@example.com](mailto:your_verified_sender@example.com)
   </Accordion>
 </AccordionGroup>
-
-Curious about what changed in the latest CLI version? Check out the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
