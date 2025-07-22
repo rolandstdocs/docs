@@ -15,9 +15,21 @@ Follow these steps to securely connect the apps you would like to use within Cla
     Click Codespaces.
   </Step>
   <Step title="Add Repository Secrets" titleSize="h2">
-    
+    Click New Repository Secret
+
+    Enter the secret name with KEYBOARD\_ prefix in the following format KEYBOARD_APPNAME_API_KEY (e.g. KEYBOARD_TYPEFORM_API_KEY)
+
+    Enter the secret value (your actual API key)
+
+    Click Add secret
   </Step>
 </Steps>
+
+<Tip>
+      - Once you've added the secrets you will have to reset any codespaces already running (you can ask Keyboard to delete existing codespaces)
+      - In Claude desktop ask what environment variables Keyboard has access to in order to confirm the connection worked
+      - Start asking Claude to perform tasks in your connected apps once it confirms it has access to
+    </Tip>
 
 ## Custom ports
 
