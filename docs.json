@@ -3,6 +3,7 @@
   "theme": "mint",
   "name": "Keyboard",
   "colors": {
+    "primary": "#5093B7",
     "light": "#FFFFFF",
     "dark": "#171717"
   },
@@ -63,8 +64,6 @@
     }
   },
   "footer": {
-    "socials": {
-      "github": "https://github.com/keyboard-dev/keyboard-local"
-    }
+    
   }
 }
