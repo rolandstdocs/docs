@@ -8,6 +8,32 @@ The Keyboard Development MCP (Model Context Protocol) system is designed with a 
 
 ![Screenshot2025 07 23at11 45 02AM Pn](/images/Screenshot2025-07-23at11.45.02AM.png)
 
+```
+graph TD
+    A[MCP Client] -->|WebSocket Connection| B[MCP Server]
+    B -->|Approval Request| C[Approver Client]
+    C -->|Approval/Rejection| B
+    B -->|Code Execution| D[Code Execution Environment<br/>GitHub Codespace]
+    D -->|Results| B
+    B -->|Response| A
+    
+    subgraph "Security Layer"
+        E[Token Authentication]
+        F[Encryption]
+        G[Human Approval]
+    end
+    
+    subgraph "Workflow Steps"
+        H[1. Initiation]
+        I[2. Planning]
+        J[3. Evaluation] 
+        K[4. Approval]
+        L[5. Execution]
+        M[6. Review]
+        N[7. Response]
+    end
+```
+
 ## Component overview
 
 ### MCP client
