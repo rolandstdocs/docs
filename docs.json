@@ -4,8 +4,8 @@
   "name": "Keyboard",
   "colors": {
     "primary": "#5093B7",
-    "light": "#FFFFFF",
-    "dark": "#171717"
+    "light": "#5093B7",
+    "dark": "#5093B7"
   },
   "favicon": "/LOGO_favicon.svg",
   "navigation": {
