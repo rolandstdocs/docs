@@ -36,31 +36,3 @@
         },
         {
           "anchor": "Community",
-          "href": "https://discord.com/invite/UxsRWtV6M2",
-          "icon": "discord"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/LOGO_lightmode.svg",
-    "dark": "/logo/LOGO_darkmode.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@dev-docs.io"
-      },
-      {
-        "label": "GitHub",
-        "href": "https://github.com/keyboard-dev/keyboard-local"
-      }
-    ],
-  },
-  "footer": {
-    "socials": {
-      "github": "https://github.com/keyboard-dev/keyboard-local"
-    }
-  }
-}
