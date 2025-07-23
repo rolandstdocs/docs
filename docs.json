@@ -3,7 +3,6 @@
   "theme": "mint",
   "name": "Keyboard",
   "colors": {
-    "primary": "#5093B7",
     "light": "#FFFFFF",
     "dark": "#171717"
   },
