@@ -16,12 +16,12 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart",
-              "thirdpartyapps",
-              "claude",
-              "architecture",
-              "disclaimer"
+              "getting-started/index",
+              "getting-started/quickstart",
+              "getting-started/thirdpartyapps",
+              "getting-started/claude",
+              "getting-started/architecture",
+              "getting-started/disclaimer"
             ]
           }
         ]
