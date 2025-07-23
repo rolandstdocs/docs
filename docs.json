@@ -32,17 +32,12 @@
         {
           "anchor": "Website",
           "href": "https://www.keyboard.dev/",
-          "icon": "flag"
+          "icon": "globe"
         },
         {
           "anchor": "Community",
           "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "icon": "discord"
         }
       ]
     }
