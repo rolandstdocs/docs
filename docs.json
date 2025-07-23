@@ -53,7 +53,6 @@
         "href": "mailto:support@dev-docs.io"
       }
     ],
-      "type": "button",
       "label": "GitHub",
       "href": "https://github.com/keyboard-dev/keyboard-local"
   },
