@@ -1,6 +1,6 @@
 ---
 title: "Welcome to Keyboard"
-description: "Your universal Model Context Protocol server"
+description: "On MCP, all your apps, no credit tracking"
 ---
 
 ## Introduction
@@ -9,53 +9,26 @@ Keyboard is a Model Context Protocol (MCP) server designed to transform how you 
 
 ## What can Keyboard do?
 
-Keyboard allows users to extend the capabilities of AI clients by:
-
-- Connect various apps to your AI client via one secure MCP server
-- Execute the tasks within your own environment
-- Automate workflows
-- Execute context-specific tasks using a robust server infrastructure
-
-## Key features
+Keyboard acts as a single, secure bridge between your AI client and the rest of your tools. With it, you can connect multiple applications, run every task inside your own infrastructure, automate end-to-end workflows, and trigger actions that adapt to the context of each request—all from one MCP server.
 
 ### Secure code execution
 
-- Run code safely within controlled environments
-- Support for multiple execution contexts
-- Built-in security mechanisms to prevent malicious actions
-
-### Multi-client support
-
-- Compatible with Claude and other MCP clients
-- Flexible integration with various AI services
-- Extensible architecture for future client support
+Whenever an AI-generated snippet runs through Keyboard, it does so in a sandboxed environment. Each run is isolated, logged, and governed by built-in safeguards that block malicious behavior before it can reach your production systems.
 
 ### Task automation
 
-- Create complex, multi-step workflows
-- Automate repetitive tasks
-- Integrate with various services and APIs
+Connect all your apps via a single server. A single prompt can launch a multi-step sequence. Keyboard coordinates each call to external APIs, passes results from one step to the next, and allows for repetitive jobs to finish in the background.
 
 ## Core concepts
 
 ### Model Context Protocol (MCP)
 
-Keyboard implements the Model Context Protocol, which provides a standardized way for AI clients to interact with execution environments, enabling more dynamic and powerful interactions.
+MCP is the common language that lets an AI client request secure code execution. By implementing MCP, Keyboard lets the client spin up a workspace, send code, stream outputs, and release resources in a predictable, auditable flow.
 
 ### Execution tools
 
-Keyboard provides a range of tools for different execution scenarios:
-
-- WebSocket communication
-- Code evaluation
-- Resource management
-- Secure token-based execution
+Behind the scenes, Keyboard supplies real-time WebSocket channels, a language-agnostic code runner, resource quotas to keep workloads under control, and token-scoped permissions that dictate exactly what each session can do.
 
 ## Security first
 
-Keyboard is designed with security at its core:
-
-- Token-based authentication
-- Controlled execution environments
-- Comprehensive security checks
-- Approval workflows for sensitive operations
+Every request is authenticated with scoped tokens, executed inside a tightly confined runtime, and checked against a comprehensive policy engine. If an operation touches sensitive data or systems, Keyboard pauses for explicit human approval before it proceeds.
