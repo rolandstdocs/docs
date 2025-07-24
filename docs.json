@@ -20,6 +20,11 @@
               "getting-started/quickstart",
               "getting-started/thirdpartyapps",
               "getting-started/claude",
+            ]
+          },
+          {
+            "group": "How it works",
+            "pages": [
               "getting-started/architecture",
               "getting-started/disclaimer"
             ]
