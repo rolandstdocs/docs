@@ -9,7 +9,7 @@ description: "Set up Keyboard in minutes"
   **Prerequisites**:
 
   - Node.js version 18 or higher
-  - Claude Desktop, with an account that can add integrations and MCP servers
+  - Claude Desktop, with an account that can add integrations and MCP servers (other clients coming soon)
   - MacOS (for now\!) - This guide and the current release are for Mac users. We're working on support for other platforms—stay tuned\!
 </Info>
 
@@ -23,16 +23,17 @@ If you are unfamiliar with how to create a GitHuB Personal Access Token (PAT) th
 
 Generate a fine-grained GitHub PAT that only has access to the codespace-executor repo you forked and has the following codespaces permissions below (screenshots to follow):
 
-- Codespaces: Read and write
-- Codespaces lifecycle admin: Read and write
-- Codespaces metadata: Read-only
-- Metadata: Read-only (this is preselected and mandatory on all fine-grained GitHub PATs)
+- Codespaces: **Read and write**
+- Codespaces lifecycle admin: **Read and write**
+- Codespaces metadata: **Read-only**
 
-  ![Img1 Pn](/images/img1.png)
+Metadata: **Read-only** (this is preselected and mandatory on all fine-grained GitHub PATs)
 
-  ![Img2 Pn](/images/img2.png)
+![Img1 Pn](/images/img1.png)
 
-  You will need to copy and paste this PAT in the next step.
+![Img2 Pn](/images/img2.png)
+
+You will need to copy and paste this PAT in the next step.
 
 ### Set up with Claude Desktop in Claude Desktop
 
@@ -115,10 +116,9 @@ That's it\! Setup should be done.
 ## Troubleshooting
 
 - Verify your `.env` file contains the correct info
-- Check network connectivity
 - Ensure the MCP server is running and accessible
 - If Claude is not loading trying quiting the Claude Desktop app and opening again
-- On Mac if login on the electron app is not redirecting properly run
+- On Mac if login on the electron app is not redirecting properly run:
 
 ```
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
