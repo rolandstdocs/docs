@@ -6,19 +6,13 @@ The Keyboard Development MCP (Model Context Protocol) system is designed with a 
 
 ## System architecture diagram
 
-\`\`\`mermaid
-
+```mermaid
 flowchart LR
-
-    A[📱 Claude Request] --\>|"Send email via Gmail"| B[🔍 Keyboard Generates Code]
-    
-    B --\>|📋 Shows preview| C[✅ You approve/reject]
-    
-    C --\>|✅ Approved| D[☁️ Executes in Codespace]
-    
-    D --\>|📊 Results| A
-
-\`\`\`
+    A[📱 Claude Request] -->|"Send email via Gmail"| B[🔍 Keyboard Generates Code]
+    B -->|📋 Shows preview| C[✅ You approve/reject]
+    C -->|✅ Approved| D[☁️ Executes in Codespace]
+    D -->|📊 Results| A
+```
 
 ## Component overview
 
