@@ -7,9 +7,14 @@ description: "The Keyboard Development MCP (Model Context Protocol) system is de
 
 ```mermaid
 flowchart TD
-    A[📱 Claude Request] -->|"Send email via Gmail"| B[🔍 Keyboard Generates Code]
-    B -->|📋 Shows preview| C[✅ You approve/reject]
-    C -->|✅ Approved| D[☁️ Executes in Codespace]
+    A[📱 Claude Request]
+    B[🔍 Keyboard Generates Code]
+    C[✅ You approve/reject]
+    D[☁️ Executes in Codespace]
+    
+    A -->|"Send email via Gmail"| B
+    B -->|📋 Shows preview| C
+    C -->|✅ Approved| D
     D -->|📊 Results| A
 ```
 
