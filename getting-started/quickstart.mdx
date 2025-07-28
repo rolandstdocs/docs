@@ -47,59 +47,72 @@ Drag and drop the downloaded keyboard-mcp.dxt file and click "Install".
 
 Copy the GitHub PAT generated in the previous step into the Claude UI.
 
-## Clone the Approver app
+### Use the Desktop App
 
-```
-# Get access to both repos
-git clone --recursive https://github.com/keyboard-dev/keyboard-local.git
-cd keyboard-local
+<Tabs>
+  <Tab title="Option 1: Download and open the Desktop App">
+    You can download and run the desktop app [here](https://github.com/keyboard-dev/approver-client/releases/download/v.0.0.1/keyboard-approver.App-darwin-arm64-1.0.0.zip).  Just unzip it and run.\
+    \
+    Create an account and get started.
+  </Tab>
+  <Tab title="Option 2: Git Clone the Approver app">
+    ### 
 
-# Work on desktop electron app
-cd apps/approver-client
-git checkout main
-git pull origin main
-```
+    For running the code and desktop app yourself, copy the commands below.  This is useful if you want to contribute to project.
 
-## Add .env for the Approver app
+    ```
+    # Get access to both repos
+    git clone --recursive https://github.com/keyboard-dev/keyboard-local.git
+    cd keyboard-local
+    
+    # Work on desktop electron app
+    cd apps/approver-client
+    git checkout main
+    git pull origin main
+    ```
 
-### Generate encryption keys
+    ## Add .env for the Approver app
 
-Run this script at the root of project to create your encryption keys. You will need to copy and paste them in the next step.
+    ### Generate encryption keys
 
-```
-node generate-encryption-key.js
-```
+    Run this script at the root of project to create your encryption keys. You will need to copy and paste them in the next step.
 
-### Create the .env file
+    ```
+    node generate-encryption-key.js
+    ```
 
-Create a `.env` file in the project root with the following configuration. If in Claude Desktop you want to optionally encrypt messages sent from your local MCP server to your codespace execution server the `CODE_ENCRYPTION_KEY` will be used to add an additional layer of encryption to the data in transit. You will also need to add an env variable to the codespace-executor called `KB_ENCRYPTION_KEY` that will be the same value as `CODE_ENCRYPTION_KEY`.
+    ### Create the .env file
 
-```markdown
-# Required
-ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
+    Create a `.env` file in the project root with the following configuration. If in Claude Desktop you want to optionally encrypt messages sent from your local MCP server to your codespace execution server the `CODE_ENCRYPTION_KEY` will be used to add an additional layer of encryption to the data in transit. You will also need to add an env variable to the codespace-executor called `KB_ENCRYPTION_KEY` that will be the same value as `CODE_ENCRYPTION_KEY`.
 
-# Optional: Enable message encryption
-#CODE_ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
-```
+    ```markdown
+    # Required
+    ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
+    
+    # Optional: Enable message encryption
+    #CODE_ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
+    ```
 
-In this project we also use [dotenvx](https://dotenvx.com/) to encrypt credentials at rest. Run the command below:
+    In this project we also use [dotenvx](https://dotenvx.com/) to encrypt credentials at rest. Run the command below:
 
-```
-npx @dotenvx/dotenvx encrypt
-npx @dotenvx/dotenvx ext gitignore
-```
+    ```
+    npx @dotenvx/dotenvx encrypt
+    npx @dotenvx/dotenvx ext gitignore
+    ```
 
-Now run the project.
+    Now run the project.
 
-```
-# Install dependencies
-npm install
+    ```
+    # Install dependencies
+    npm install
+    
+    # run the Electron App
+    npm run dev
+    ```
 
-# run the Electron App
-npm run dev
-```
-
-Create an account and get started.
+    Create an account and get started.
+  </Tab>
+</Tabs>
 
 ## Connect the Keyboard Approver app to Claude
 
