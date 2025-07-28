@@ -17,32 +17,19 @@ flowchart LR
 
 ### MCP client
 
-- The entry point of the system
-- Initiates WebSocket connections
-- Sends code execution requests
-- Receives execution results and approvals
+The MCP client is the entry point of the system. It establishes a WebSocket connection, sends code execution requests, and receives results and approval decisions.
 
 ### MCP server
 
-- Central orchestration component
-- Manages WebSocket communication
-- Handles tool registration and execution
-- Coordinates between desktop client and approver
-- Manages security tokens and code evaluation workflow
+The MCP server orchestrates communication between components. It manages WebSocket connections, registers tools, handles security tokens, and coordinates code evaluation and execution workflows.
 
 ### Approver client
 
-- Provides human-in-the-loop security mechanism
-- Receives and processes approval requests
-- Enables interactive decision-making for code execution, and code execution responses
-- Sends approval/rejection responses
+The approver client enables human-in-the-loop security. It receives approval requests, allows interactive review of code execution, and sends approval or rejection decisions.
 
 ### Code execution environment
 
-- Indvidual, secure, GitHub Codespace
-- Executes interpolated and evaluated code
-- Provides isolated execution context
-- Returns execution results
+Code execution occurs in an isolated GitHub Codespace on your own private repo set up when getting started with Keyboard. It securely evaluates and runs interpolated code, then returns the result.
 
 ## Workflow steps
 
@@ -56,24 +43,12 @@ flowchart LR
 
 ## Security mechanisms
 
-- WebSocket token-based authentication
-- Interactive human approval
-- Isolated code execution environments
-- Encryption of messages
-- Single-use planning and execution tokens
+The system uses token-based authentication over WebSocket and encrypts all messages. It ensures safety through isolated execution environments, single-use tokens, and human approval for sensitive operations.
 
 ## Key technologies
 
-- WebSocket for real-time communication
-- GitHub Codespaces for secure execution
-- Token-based security model
-- Zod for runtime type validation
+WebSocket enables real-time communication between components. GitHub Codespaces, a token-based security model, and Zod for runtime validation power the system’s execution and safety guarantees.
 
 ## Configuration
 
-The system is highly configurable with options for:
-
-- WebSocket connection parameters
-- Reconnection strategies
-- Approval timeout settings
-- Encryption preferences
+The system supports customizable WebSocket parameters, reconnection logic, approval timeouts, and encryption settings. These options allow flexible integration into different environments and workflows.
