@@ -78,35 +78,6 @@ Copy the GitHub PAT generated in the previous step into the Claude UI.
     git pull origin main
     ```
 
-    ## Add .env for the Approver app
-
-    ### Generate encryption keys
-
-    Run this script at the root of project to create your encryption keys. You will need to copy and paste them in the next step.
-
-    ```
-    node generate-encryption-key.js
-    ```
-
-    ### Create the .env file
-
-    Create a `.env` file in the project root with the following configuration. If in Claude Desktop you want to optionally encrypt messages sent from your local MCP server to your codespace execution server the `CODE_ENCRYPTION_KEY` will be used to add an additional layer of encryption to the data in transit. You will also need to add an env variable to the codespace-executor called `KB_ENCRYPTION_KEY` that will be the same value as `CODE_ENCRYPTION_KEY`.
-
-    ```markdown
-    # Required
-    ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
-    
-    # Optional: Enable message encryption
-    #CODE_ENCRYPTION_KEY=RANDOM_ENCRYPTION_KEY
-    ```
-
-    In this project we also use [dotenvx](https://dotenvx.com/) to encrypt credentials at rest. Run the command below:
-
-    ```
-    npx @dotenvx/dotenvx encrypt
-    npx @dotenvx/dotenvx ext gitignore
-    ```
-
     Now run the project.
 
     ```
