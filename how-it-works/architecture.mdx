@@ -5,13 +5,20 @@ description: "The Keyboard Development MCP (Model Context Protocol) system is de
 
 ## System architecture diagram
 
-```mermaid
-flowchart TD
-    A[📱 Request] -->|Gmail command| B[🔍 Generate Code]
-    B -->|Preview| C[✅ Approve]
-    C -->|Execute| D[☁️ Codespace]
-    D -->|Results| A
-```
+<img
+  className="block dark:hidden"
+  src="/UserFlow_lightmode.svg"
+  alt="Light mode interface"
+  title=""
+/>
+
+<img
+  className="hidden dark:block"
+  src="/UserFlow_darkmode.svg"
+  alt="Dark mode interface"
+  title=""
+  style={{ width:"100%" }}
+/>
 
 ## Component overview
 
