@@ -1,0 +1,270 @@
+# How to Use OAuth Connections
+
+## Getting Started
+
+OAuth connections allow you to securely connect to external services like Google, GitHub, and Microsoft without sharing your passwords. The system uses industry-standard security to keep your data safe.
+
+## Accessing OAuth Settings
+
+1. **Open Settings**: Click the settings icon or navigate to the Settings panel
+2. **Navigate to OAuth**: You'll see four tabs at the top:
+   - WebSocket
+   - Encryption  
+   - **OAuth Providers** ← Click here for direct connections
+   - **Server Providers** ← Click here for server-managed connections
+
+---
+
+## OAuth Providers Tab
+
+This is where you manage direct connections to services using your own app credentials.
+
+### What You'll See
+
+**Provider Cards**: Each service appears as a card showing:
+- **Provider icon and name** (e.g., Google, GitHub)
+- **Connection status**: "Not Connected", "Connected", or "Expired"
+- **Scopes**: What permissions the app has access to
+- **Action buttons**: Connect, Refresh, Token, Disconnect
+
+### Built-in Providers
+
+The system comes with pre-configured providers:
+
+#### Google 🔍
+- **Status shown**: Connected/Expired/Not Connected
+- **Scopes**: openid, email, profile, drive.readonly, gmail.readonly, spreadsheets, presentations, drive.file
+- **What you can do**: Access Google Drive, Gmail, Sheets, Slides
+
+#### GitHub 🐙  
+- **Scopes**: user:email, repo
+- **What you can do**: Access repositories and user profile data
+
+### Connecting to a Provider
+
+1. **Find the provider card** you want to connect to
+2. **Check requirements**: If you see ⚠️ "This provider needs a Client ID to be configured", you'll need to add credentials first
+3. **Click "Connect"** button
+4. **Browser opens**: You'll be redirected to the provider's login page
+5. **Sign in**: Enter your credentials on the provider's website
+6. **Grant permissions**: Review and approve the requested access
+7. **Return to app**: You'll be redirected back automatically
+8. **Success**: The card now shows "Connected" with a green badge
+
+### Managing Connected Providers
+
+Once connected, you'll see additional options:
+
+#### 📋 Copy Token
+- Click to copy your access token to clipboard
+- Use this token in other applications or scripts
+- **Security note**: Tokens are sensitive - don't share them
+
+#### 🔄 Refresh (if expired)
+- Appears when your connection has expired
+- Click to get a new access token
+- Usually happens automatically
+
+#### ❌ Disconnect
+- Removes the connection and deletes stored tokens
+- You'll need to reconnect to use the service again
+
+---
+
+## Adding Custom Providers
+
+Need to connect to a service that's not built-in? You can add your own!
+
+### Step 1: Click "➕ Add Provider"
+Located at the top of the OAuth Providers tab.
+
+### Step 2: Fill Out the Form
+
+You'll see a form with these fields:
+
+#### Required Fields ⚠️
+- **Provider ID**: Unique name (like "slack" or "discord")
+  - Cannot be changed after creation
+  - Use lowercase letters and hyphens
+- **Display Name**: What users see (like "Slack" or "Discord")
+- **Client ID**: From your OAuth app settings
+- **Authorization URL**: Where users go to log in
+- **Token URL**: Where the app exchanges codes for tokens
+
+#### Optional Fields
+- **Icon**: Emoji to represent the service (🔗 is default)
+- **Client Secret**: Some services require this
+- **User Info URL**: To fetch user profile data
+- **Scopes**: What permissions to request
+- **Redirect URI**: Usually http://localhost:8082/callback
+
+#### Quick Templates
+The form includes buttons for popular services:
+- **Google** 🔍: Pre-fills Google's settings
+- **GitHub** 🐙: Pre-fills GitHub's settings  
+- **Microsoft** 🪟: Pre-fills Microsoft's settings
+- **Discord** 💬: Pre-fills Discord's settings
+
+### Step 3: Save and Connect
+1. Click "✅ Add Provider"
+2. Your new provider appears in the list
+3. Click "Connect" to set up the connection
+
+---
+
+## Server Providers Tab
+
+Server Providers let you connect through centralized OAuth servers managed by your organization.
+
+### What You'll See
+
+**Server List**: Shows configured OAuth servers with:
+- **Server name and URL** (e.g., "My OAuth Server" at https://api.keyboard.dev)
+- **Available providers** from that server
+- **Connection status** for each provider
+- **Remove button** to delete servers
+
+### Adding a Server
+
+1. **Click "Add Server"** button (top right)
+2. **Fill in the form**:
+   - **Server Name**: Friendly name for your server
+   - **Server URL**: The server's base URL (e.g., http://localhost:4000)
+3. **Click "Add Server"**
+4. **Server appears** in the list and fetches available providers
+
+### Using Server Providers
+
+Once a server is added:
+
+#### Available Providers Section
+Shows providers configured on that server:
+- **🟢 Green dot**: Provider is configured and ready
+- **🔴 Red dot**: Provider needs server-side setup
+- **Provider name**: Like "Google" or "X"
+- **Connection status**: Connected/Expired/Not Connected
+
+#### Connecting Through Server
+1. **Find a provider** with green status dot
+2. **Click "🔗 Connect"**
+3. **OAuth flow begins** (same as direct providers)
+4. **Authentication managed** by the server
+
+#### Managing Server Connections
+Connected providers show:
+- **📋 Token**: Copy access token
+- **🔄 Refresh**: Get new token (if expired)  
+- **❌ Disconnect**: Remove connection
+
+---
+
+## Understanding Connection Status
+
+### Status Indicators
+
+#### 🟢 Connected
+- You're successfully authenticated
+- Tokens are valid and not expired
+- Ready to use the service
+
+#### 🔴 Expired  
+- Your access token has expired
+- Click "🔄 Refresh" to get a new one
+- May happen automatically in background
+
+#### ⚪ Not Connected
+- No active connection to this service
+- Click "🔗 Connect" to set up authentication
+
+### User Information
+When connected, you'll see:
+- **👤 User name or email**
+- **📅 Connection date**: When you first connected
+- **🔄 Last updated**: When tokens were last refreshed
+
+---
+
+## Managing Your Connections
+
+### Top-Level Actions
+
+#### 🔄 Refresh
+Updates the list of all providers and their status.
+
+#### 🗑️ Clear All  
+**⚠️ Careful!** This removes ALL OAuth connections at once.
+- Appears when you have active connections
+- Requires confirmation before proceeding
+- Cannot be undone
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+#### "No Client ID" Warning
+**What it means**: The provider needs OAuth app credentials to work.
+
+**How to fix**:
+1. Edit the provider (✏️ button)
+2. Add your Client ID and Client Secret
+3. Save changes and try connecting again
+
+#### "Authentication Error"
+**What might be wrong**:
+- Incorrect Client ID or Client Secret
+- Wrong redirect URI in your OAuth app settings  
+- Service is temporarily unavailable
+
+**What to try**:
+1. Double-check your OAuth app settings
+2. Ensure redirect URI is http://localhost:8082/callback
+3. Try refreshing the page and connecting again
+
+#### "Token Expired" 
+**Normal behavior**: Tokens expire for security.
+
+**What to do**:
+1. Click "🔄 Refresh" button
+2. If refresh fails, click "❌ Disconnect" then "🔗 Connect" again
+
+---
+
+## Security Notes
+
+### What's Protected
+- **🔐 All tokens encrypted**: Stored securely on your device
+- **🛡️ PKCE security**: Protection against code interception
+- **🔒 File permissions**: Storage files are locked to your user account
+- **⏰ Token expiration**: Automatic cleanup of old tokens
+
+### Best Practices
+- **🔄 Regular refresh**: Let the system refresh tokens automatically
+- **❌ Disconnect unused**: Remove providers you no longer need
+- **👀 Review scopes**: Only grant necessary permissions
+- **🔐 Keep credentials secure**: Don't share Client IDs or secrets
+
+---
+
+## Quick Reference
+
+### OAuth Providers Tab
+- **Connect**: Set up new connection
+- **Token**: Copy access token
+- **Refresh**: Get new token
+- **Disconnect**: Remove connection
+- **Add Provider**: Create custom provider
+
+### Server Providers Tab  
+- **Add Server**: Connect to OAuth server
+- **Remove**: Delete server configuration
+- **Refresh**: Update provider list
+- **Connect**: Authenticate through server
+
+### Status Colors
+- 🟢 **Green**: Connected and active
+- 🔴 **Red**: Expired or error
+- ⚪ **Gray**: Not connected
+
+This interface makes OAuth simple and secure - just click Connect and you're ready to go! 🚀
