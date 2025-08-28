@@ -1,3 +1,8 @@
+---
+title: "Oauth User Connections"
+description: "How to use and setup oauth user connections"
+---
+
 # How to Use OAuth Connections
 
 ## Getting Started
@@ -9,7 +14,7 @@ OAuth connections allow you to securely connect to external services like Google
 1. **Open Settings**: Click the settings icon or navigate to the Settings panel
 2. **Navigate to OAuth**: You'll see four tabs at the top:
    - WebSocket
-   - Encryption  
+   - Encryption
    - **OAuth Providers** ← Click here for direct connections
    - **Server Providers** ← Click here for server-managed connections
 
@@ -22,6 +27,7 @@ This is where you manage direct connections to services using your own app crede
 ### What You'll See
 
 **Provider Cards**: Each service appears as a card showing:
+
 - **Provider icon and name** (e.g., Google, GitHub)
 - **Connection status**: "Not Connected", "Connected", or "Expired"
 - **Scopes**: What permissions the app has access to
@@ -32,11 +38,13 @@ This is where you manage direct connections to services using your own app crede
 The system comes with pre-configured providers:
 
 #### Google 🔍
+
 - **Status shown**: Connected/Expired/Not Connected
 - **Scopes**: openid, email, profile, drive.readonly, gmail.readonly, spreadsheets, presentations, drive.file
 - **What you can do**: Access Google Drive, Gmail, Sheets, Slides
 
-#### GitHub 🐙  
+#### GitHub 🐙
+
 - **Scopes**: user:email, repo
 - **What you can do**: Access repositories and user profile data
 
@@ -56,16 +64,19 @@ The system comes with pre-configured providers:
 Once connected, you'll see additional options:
 
 #### 📋 Copy Token
+
 - Click to copy your access token to clipboard
 - Use this token in other applications or scripts
 - **Security note**: Tokens are sensitive - don't share them
 
 #### 🔄 Refresh (if expired)
+
 - Appears when your connection has expired
 - Click to get a new access token
 - Usually happens automatically
 
 #### ❌ Disconnect
+
 - Removes the connection and deletes stored tokens
 - You'll need to reconnect to use the service again
 
@@ -73,9 +84,10 @@ Once connected, you'll see additional options:
 
 ## Adding Custom Providers
 
-Need to connect to a service that's not built-in? You can add your own!
+Need to connect to a service that's not built-in? You can add your own\!
 
 ### Step 1: Click "➕ Add Provider"
+
 Located at the top of the OAuth Providers tab.
 
 ### Step 2: Fill Out the Form
@@ -83,6 +95,7 @@ Located at the top of the OAuth Providers tab.
 You'll see a form with these fields:
 
 #### Required Fields ⚠️
+
 - **Provider ID**: Unique name (like "slack" or "discord")
   - Cannot be changed after creation
   - Use lowercase letters and hyphens
@@ -92,6 +105,7 @@ You'll see a form with these fields:
 - **Token URL**: Where the app exchanges codes for tokens
 
 #### Optional Fields
+
 - **Icon**: Emoji to represent the service (🔗 is default)
 - **Client Secret**: Some services require this
 - **User Info URL**: To fetch user profile data
@@ -99,13 +113,16 @@ You'll see a form with these fields:
 - **Redirect URI**: Usually http://localhost:8082/callback
 
 #### Quick Templates
+
 The form includes buttons for popular services:
+
 - **Google** 🔍: Pre-fills Google's settings
-- **GitHub** 🐙: Pre-fills GitHub's settings  
+- **GitHub** 🐙: Pre-fills GitHub's settings
 - **Microsoft** 🪟: Pre-fills Microsoft's settings
 - **Discord** 💬: Pre-fills Discord's settings
 
 ### Step 3: Save and Connect
+
 1. Click "✅ Add Provider"
 2. Your new provider appears in the list
 3. Click "Connect" to set up the connection
@@ -119,6 +136,7 @@ Server Providers let you connect through centralized OAuth servers managed by yo
 ### What You'll See
 
 **Server List**: Shows configured OAuth servers with:
+
 - **Server name and URL** (e.g., "My OAuth Server" at https://api.keyboard.dev)
 - **Available providers** from that server
 - **Connection status** for each provider
@@ -138,22 +156,27 @@ Server Providers let you connect through centralized OAuth servers managed by yo
 Once a server is added:
 
 #### Available Providers Section
+
 Shows providers configured on that server:
+
 - **🟢 Green dot**: Provider is configured and ready
 - **🔴 Red dot**: Provider needs server-side setup
 - **Provider name**: Like "Google" or "X"
 - **Connection status**: Connected/Expired/Not Connected
 
 #### Connecting Through Server
+
 1. **Find a provider** with green status dot
 2. **Click "🔗 Connect"**
 3. **OAuth flow begins** (same as direct providers)
 4. **Authentication managed** by the server
 
 #### Managing Server Connections
+
 Connected providers show:
+
 - **📋 Token**: Copy access token
-- **🔄 Refresh**: Get new token (if expired)  
+- **🔄 Refresh**: Get new token (if expired)
 - **❌ Disconnect**: Remove connection
 
 ---
@@ -163,21 +186,26 @@ Connected providers show:
 ### Status Indicators
 
 #### 🟢 Connected
+
 - You're successfully authenticated
 - Tokens are valid and not expired
 - Ready to use the service
 
-#### 🔴 Expired  
+#### 🔴 Expired
+
 - Your access token has expired
 - Click "🔄 Refresh" to get a new one
 - May happen automatically in background
 
 #### ⚪ Not Connected
+
 - No active connection to this service
 - Click "🔗 Connect" to set up authentication
 
 ### User Information
+
 When connected, you'll see:
+
 - **👤 User name or email**
 - **📅 Connection date**: When you first connected
 - **🔄 Last updated**: When tokens were last refreshed
@@ -189,10 +217,13 @@ When connected, you'll see:
 ### Top-Level Actions
 
 #### 🔄 Refresh
+
 Updates the list of all providers and their status.
 
-#### 🗑️ Clear All  
-**⚠️ Careful!** This removes ALL OAuth connections at once.
+#### 🗑️ Clear All
+
+**⚠️ Careful\!** This removes ALL OAuth connections at once.
+
 - Appears when you have active connections
 - Requires confirmation before proceeding
 - Cannot be undone
@@ -204,28 +235,35 @@ Updates the list of all providers and their status.
 ### Common Issues
 
 #### "No Client ID" Warning
+
 **What it means**: The provider needs OAuth app credentials to work.
 
 **How to fix**:
+
 1. Edit the provider (✏️ button)
 2. Add your Client ID and Client Secret
 3. Save changes and try connecting again
 
 #### "Authentication Error"
+
 **What might be wrong**:
+
 - Incorrect Client ID or Client Secret
-- Wrong redirect URI in your OAuth app settings  
+- Wrong redirect URI in your OAuth app settings
 - Service is temporarily unavailable
 
 **What to try**:
+
 1. Double-check your OAuth app settings
 2. Ensure redirect URI is http://localhost:8082/callback
 3. Try refreshing the page and connecting again
 
-#### "Token Expired" 
+#### "Token Expired"
+
 **Normal behavior**: Tokens expire for security.
 
 **What to do**:
+
 1. Click "🔄 Refresh" button
 2. If refresh fails, click "❌ Disconnect" then "🔗 Connect" again
 
@@ -234,12 +272,14 @@ Updates the list of all providers and their status.
 ## Security Notes
 
 ### What's Protected
+
 - **🔐 All tokens encrypted**: Stored securely on your device
 - **🛡️ PKCE security**: Protection against code interception
 - **🔒 File permissions**: Storage files are locked to your user account
 - **⏰ Token expiration**: Automatic cleanup of old tokens
 
 ### Best Practices
+
 - **🔄 Regular refresh**: Let the system refresh tokens automatically
 - **❌ Disconnect unused**: Remove providers you no longer need
 - **👀 Review scopes**: Only grant necessary permissions
@@ -250,21 +290,24 @@ Updates the list of all providers and their status.
 ## Quick Reference
 
 ### OAuth Providers Tab
+
 - **Connect**: Set up new connection
 - **Token**: Copy access token
 - **Refresh**: Get new token
 - **Disconnect**: Remove connection
 - **Add Provider**: Create custom provider
 
-### Server Providers Tab  
+### Server Providers Tab
+
 - **Add Server**: Connect to OAuth server
 - **Remove**: Delete server configuration
 - **Refresh**: Update provider list
 - **Connect**: Authenticate through server
 
 ### Status Colors
+
 - 🟢 **Green**: Connected and active
 - 🔴 **Red**: Expired or error
 - ⚪ **Gray**: Not connected
 
-This interface makes OAuth simple and secure - just click Connect and you're ready to go! 🚀
+This interface makes OAuth simple and secure - just click Connect and you're ready to go\! 🚀
