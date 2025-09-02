@@ -3,13 +3,13 @@ title: "Oauth user connections"
 description: "How to use and setup oauth user connections"
 ---
 
-# How to Use OAuth Connections
+# How to use OAuth connections
 
-## Getting Started
+## Getting started
 
 OAuth connections allow you to securely connect to external services like Google, GitHub, and Microsoft without sharing your passwords. The system uses industry-standard security to keep your data safe.
 
-## Accessing OAuth Settings
+## Accessing OAuth settings
 
 1. **Open Settings**: In the Desktop App, click the settings icon or navigate to the Settings panel
 2. **Navigate to OAuth**: You'll see four tabs at the top:
@@ -20,11 +20,11 @@ OAuth connections allow you to securely connect to external services like Google
 
 ---
 
-## OAuth Providers Tab
+## OAuth Providers tab
 
 This is where you manage direct connections to services using your own app credentials.
 
-### What You'll See
+### What you'll see
 
 **Provider Cards**: Each service appears as a card showing:
 
@@ -33,7 +33,7 @@ This is where you manage direct connections to services using your own app crede
 - **Scopes**: What permissions the app has access to
 - **Action buttons**: Connect, Refresh, Token, Disconnect
 
-### Built-in Providers
+### Built-in providers
 
 The system comes with pre-configured providers:
 
@@ -48,7 +48,7 @@ The system comes with pre-configured providers:
 - **Scopes**: user:email, repo
 - **What you can do**: Access repositories and user profile data
 
-### Connecting to a Provider
+### Connecting to a provider
 
 1. **Find the provider card** you want to connect to
 2. **Check requirements**: If you see ⚠️ "This provider needs a Client ID to be configured", you'll need to add credentials first
@@ -59,11 +59,11 @@ The system comes with pre-configured providers:
 7. **Return to app**: You'll be redirected back automatically
 8. **Success**: The card now shows "Connected" with a green badge
 
-### Managing Connected Providers
+### Managing connected providers
 
 Once connected, you'll see additional options:
 
-#### 📋 Copy Token
+#### 📋 Copy token
 
 - Click to copy your access token to clipboard
 - Use this token in other applications or scripts
@@ -82,7 +82,7 @@ Once connected, you'll see additional options:
 
 ---
 
-## Adding Custom Providers
+## Adding custom providers
 
 Need to connect to a service that's not built-in? You can add your own\!
 
@@ -90,11 +90,11 @@ Need to connect to a service that's not built-in? You can add your own\!
 
 Located at the top of the OAuth Providers tab.
 
-### Step 2: Fill Out the Form
+### Step 2: Fill out the form
 
 You'll see a form with these fields:
 
-#### Required Fields ⚠️
+#### Required fields ⚠️
 
 - **Provider ID**: Unique name (like "slack" or "discord")
   - Cannot be changed after creation
@@ -104,7 +104,7 @@ You'll see a form with these fields:
 - **Authorization URL**: Where users go to log in
 - **Token URL**: Where the app exchanges codes for tokens
 
-#### Optional Fields
+#### Optional fields
 
 - **Icon**: Emoji to represent the service (🔗 is default)
 - **Client Secret**: Some services require this
@@ -112,7 +112,7 @@ You'll see a form with these fields:
 - **Scopes**: What permissions to request
 - **Redirect URI**: Usually http://localhost:8082/callback
 
-#### Quick Templates
+#### Quick templates
 
 The form includes buttons for popular services:
 
@@ -121,7 +121,7 @@ The form includes buttons for popular services:
 - **Microsoft** 🪟: Pre-fills Microsoft's settings
 - **Discord** 💬: Pre-fills Discord's settings
 
-### Step 3: Save and Connect
+### Step 3: Save and connect
 
 1. Click "✅ Add Provider"
 2. Your new provider appears in the list
@@ -129,11 +129,11 @@ The form includes buttons for popular services:
 
 ---
 
-## Server Providers Tab
+## Server Providers tab
 
 Server Providers let you connect through centralized OAuth servers managed by your organization.
 
-### What You'll See
+### What you'll see
 
 **Server List**: Shows configured OAuth servers with:
 
@@ -142,7 +142,7 @@ Server Providers let you connect through centralized OAuth servers managed by yo
 - **Connection status** for each provider
 - **Remove button** to delete servers
 
-### Adding a Server
+### Adding a server
 
 1. **Click "Add Server"** button (top right)
 2. **Fill in the form**:
@@ -151,11 +151,11 @@ Server Providers let you connect through centralized OAuth servers managed by yo
 3. **Click "Add Server"**
 4. **Server appears** in the list and fetches available providers
 
-### Using Server Providers
+### Using server providers
 
 Once a server is added:
 
-#### Available Providers Section
+#### Available providers section
 
 Shows providers configured on that server:
 
@@ -164,14 +164,14 @@ Shows providers configured on that server:
 - **Provider name**: Like "Google" or "X"
 - **Connection status**: Connected/Expired/Not Connected
 
-#### Connecting Through Server
+#### Connecting through server
 
 1. **Find a provider** with green status dot
 2. **Click "🔗 Connect"**
 3. **OAuth flow begins** (same as direct providers)
 4. **Authentication managed** by the server
 
-#### Managing Server Connections
+#### Managing server connections
 
 Connected providers show:
 
@@ -181,9 +181,9 @@ Connected providers show:
 
 ---
 
-## Understanding Connection Status
+## Understanding connection status
 
-### Status Indicators
+### Status indicators
 
 #### 🟢 Connected
 
@@ -197,12 +197,12 @@ Connected providers show:
 - Click "🔄 Refresh" to get a new one
 - May happen automatically in background
 
-#### ⚪ Not Connected
+#### ⚪ Not connected
 
 - No active connection to this service
 - Click "🔗 Connect" to set up authentication
 
-### User Information
+### User information
 
 When connected, you'll see:
 
@@ -212,15 +212,15 @@ When connected, you'll see:
 
 ---
 
-## Managing Your Connections
+## Managing your vonnections
 
-### Top-Level Actions
+### Top-level actions
 
 #### 🔄 Refresh
 
 Updates the list of all providers and their status.
 
-#### 🗑️ Clear All
+#### 🗑️ Clear all
 
 **⚠️ Careful\!** This removes ALL OAuth connections at once.
 
@@ -232,9 +232,9 @@ Updates the list of all providers and their status.
 
 ## Troubleshooting
 
-### Common Issues
+### Common issues
 
-#### "No Client ID" Warning
+#### "No Client ID" warning
 
 **What it means**: The provider needs OAuth app credentials to work.
 
@@ -269,16 +269,16 @@ Updates the list of all providers and their status.
 
 ---
 
-## Security Notes
+## Security notes
 
-### What's Protected
+### What's protected
 
 - **🔐 All tokens encrypted**: Stored securely on your device
 - **🛡️ PKCE security**: Protection against code interception
 - **🔒 File permissions**: Storage files are locked to your user account
 - **⏰ Token expiration**: Automatic cleanup of old tokens
 
-### Best Practices
+### Best practices
 
 - **🔄 Regular refresh**: Let the system refresh tokens automatically
 - **❌ Disconnect unused**: Remove providers you no longer need
@@ -287,9 +287,9 @@ Updates the list of all providers and their status.
 
 ---
 
-## Quick Reference
+## Quick reference
 
-### OAuth Providers Tab
+### OAuth Providers tab
 
 - **Connect**: Set up new connection
 - **Token**: Copy access token
@@ -297,14 +297,14 @@ Updates the list of all providers and their status.
 - **Disconnect**: Remove connection
 - **Add Provider**: Create custom provider
 
-### Server Providers Tab
+### Server Providers tab
 
 - **Add Server**: Connect to OAuth server
 - **Remove**: Delete server configuration
 - **Refresh**: Update provider list
 - **Connect**: Authenticate through server
 
-### Status Colors
+### Status colors
 
 - 🟢 **Green**: Connected and active
 - 🔴 **Red**: Expired or error
