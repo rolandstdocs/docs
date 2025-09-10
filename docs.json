@@ -76,6 +76,9 @@
         "apiKey": "phc_uIFQIzK0xlQsQOKVHT7lpA7hbbkci2yFodxco2TuiIa"
     }
   },
+  "contextual": {
+    "options": ["copy"]
+  }
   "footer": {
     
   }
