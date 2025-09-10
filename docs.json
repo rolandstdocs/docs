@@ -77,7 +77,7 @@
     }
   },
   "contextual": {
-    "options": ["copy"]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     
