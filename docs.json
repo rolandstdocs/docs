@@ -18,6 +18,7 @@
             "pages": [
               "getting-started/index",
               "getting-started/quickstart",
+              "getting-started/other-mcp-clients",
               "getting-started/thirdpartyapps",
               "getting-started/app_builder",
               "getting-started/oauth-ui-guide",
