@@ -18,11 +18,15 @@
             "pages": [
               "getting-started/index",
               "getting-started/quickstart",
-              "getting-started/other-mcp-clients",
               "getting-started/thirdpartyapps",
-              "getting-started/app_builder",
-              "getting-started/oauth-ui-guide",
-              "getting-started/claude"
+              "getting-started/other-mcp-clients"
+            ]
+          },
+          {"group": "Guides",
+            "pages": [
+              "guides/claude",
+              "guides/app_builder",
+              "guides/oauth-ui-guide"
             ]
           },
           {
